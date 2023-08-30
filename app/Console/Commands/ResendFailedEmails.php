@@ -10,7 +10,7 @@ class ResendFailedEmails extends Command
 {
     protected $signature = 'mail:send {subscriptions} {info}';
     protected $description = 'Resend emails to users who did not receive them';
-
+aaaaaa
     public function __construct()
     {
         parent::__construct();
