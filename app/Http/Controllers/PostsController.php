@@ -32,7 +32,7 @@ class PostsController extends Controller
                       array_push($res, $subscriber);
            };
         }
-     
+
         Artisan::call('mail:send', [
             'subscriptions' => $res,
             'info' => $info
