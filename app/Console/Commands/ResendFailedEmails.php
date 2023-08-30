@@ -21,5 +21,5 @@ class ResendFailedEmails extends Command
         foreach ($this->argument('subscriptions') as $subscriber) {
             Mail::to($subscriber->email)->send(new SendMail($this->argument('info')));
         }
-    }//aaaaaaaaaa
+    }
 }

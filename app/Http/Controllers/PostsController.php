@@ -28,11 +28,11 @@ class PostsController extends Controller
         $res=[];
         // Send emails to subscribers
         foreach ($subscribers as $subscriber) {
-           if(!Mail::to($subscriber->email)->send(new SendMail($info))){
-               array_push($res, $subscriber);
+           if(Mail::to($subscriber->email)->send(new SendMail($info))){
+                      array_push($res, $subscriber);
            };
         }
-
+     
         Artisan::call('mail:send', [
             'subscriptions' => $res,
             'info' => $info
