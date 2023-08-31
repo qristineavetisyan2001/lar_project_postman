@@ -8,7 +8,7 @@ use App\Http\Controllers\WebsiteController;
 use App\Mail\SendMail;
 class ResendFailedEmails extends Command
 {
-    protected $signature = 'mail:send {subscriptions} {info}';
+    protected $signature = 'mail:resend {users} {info}';
     protected $description = 'Resend emails to users who did not receive them';
 
     public function __construct()
@@ -18,7 +18,7 @@ class ResendFailedEmails extends Command
 
     public function handle()
     {
-        foreach ($this->argument('subscriptions') as $subscriber) {
+        foreach ($this->argument('users') as $subscriber) {
             Mail::to($subscriber->email)->send(new SendMail($this->argument('info')));
         }
     }
